@@ -514,8 +514,8 @@
     .marquee-track {
       display: flex;
       gap: 32px;
-      animation: marquee-scroll 18s linear infinite;
-      width: max-content;
+      /* 固定宽度：每组内容 1400px，2组=2800px，保证覆盖大屏 */
+      width: 2800px;
     }
 
     .marquee-track-reverse {
@@ -561,7 +561,8 @@
 
     @keyframes marquee-scroll {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      /* 固定移动 1400px（=一组的宽度），永远在第二组开始时 reset，无缝 */
+      100% { transform: translateX(-1400px); }
     }
 
     /* 保证 container 里的内容在 marquee 上面 */
@@ -661,7 +662,7 @@
   <!-- Section s2: Problem -->
   <section id="s2">
     <div class="marquee-wrapper">
-      <div class="marquee-track" style="animation-duration: 18s;">
+      <div class="marquee-track" style="animation: marquee-scroll 18s linear infinite;">
         <div class="marquee-item">
           <div class="marquee-icon"></div>
           <span class="marquee-label">人员信息表</span>
