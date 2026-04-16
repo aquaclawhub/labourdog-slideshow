@@ -1168,6 +1168,12 @@
               dot.classList.add('active');
             }
           });
+
+          // Show floaters only on #s3
+          const floaters = document.querySelector('.bg-floaters');
+          if (floaters) {
+            floaters.style.visibility = sectionId === 's3' ? 'visible' : 'hidden';
+          }
         }
       });
     }, observerOptions);
