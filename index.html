@@ -499,6 +499,77 @@
       line-height: 1.4;
     }
 
+    /* Marquee animation (背景跑马灯) */
+    .marquee-wrapper {
+      position: absolute;
+      bottom: 80px;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      opacity: 0.18;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 32px;
+      animation: marquee-scroll 18s linear infinite;
+      width: max-content;
+    }
+
+    .marquee-track-reverse {
+      animation-direction: reverse;
+    }
+
+    .marquee-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .marquee-icon {
+      width: 40px;
+      height: 52px;
+      background: var(--text-secondary);
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .marquee-icon::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 6px;
+      right: 6px;
+      height: 3px;
+      background: var(--bg-white);
+      border-radius: 2px;
+      box-shadow: 0 10px 0 var(--bg-white), 0 20px 0 var(--bg-white);
+    }
+
+    .marquee-label {
+      font-size: 10px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      max-width: 80px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* 保证 container 里的内容在 marquee 上面 */
+    section .container {
+      position: relative;
+      z-index: 1;
+    }
+
     /* Transition text */
     .transition-text {
       font-size: 20px;
@@ -589,6 +660,66 @@
 
   <!-- Section s2: Problem -->
   <section id="s2">
+    <div class="marquee-wrapper">
+      <div class="marquee-track" style="animation-duration: 18s;">
+        <div class="marquee-item">
+          <div class="marquee-icon"></div>
+          <span class="marquee-label">人员信息表</span>
+        </div>
+        <div class="marquee-item">
+          <div class="marquee-icon"></div>
+          <span class="marquee-label">任务下达</span>
+        </div>
+        <div class="marquee-item">
+          <div class="marquee-icon"></div>
+          <span class="marquee-label">税务确认</span>
+        </div>
+        <div class="marquee-item">
+          <div class="marquee-icon"></div>
+          <span class="marquee-label">表头核对</span>
+        </div>
+        <div class="marquee-item">
+          <div class="marquee-icon"></div>
+          <span class="marquee-label">表格导出</span>
+        </div>
+        <div class="marquee-item">
+          <div class="marquee-icon"></div>
+          <span class="marquee-label">文件签署</span>
+        </div>
+        <div class="marquee-item">
+          <div class="marquee-icon"></div>
+          <span class="marquee-label">国外函件</span>
+        </div>
+        <div class="marquee-item" aria-hidden="true">
+          <div class="marquee-icon"></div>
+          <span class="marquee-label">人员信息表</span>
+        </div>
+        <div class="marquee-item" aria-hidden="true">
+          <div class="marquee-icon"></div>
+          <span class="marquee-label">任务下达</span>
+        </div>
+        <div class="marquee-item" aria-hidden="true">
+          <div class="marquee-icon"></div>
+          <span class="marquee-label">税务确认</span>
+        </div>
+        <div class="marquee-item" aria-hidden="true">
+          <div class="marquee-icon"></div>
+          <span class="marquee-label">表头核对</span>
+        </div>
+        <div class="marquee-item" aria-hidden="true">
+          <div class="marquee-icon"></div>
+          <span class="marquee-label">表格导出</span>
+        </div>
+        <div class="marquee-item" aria-hidden="true">
+          <div class="marquee-icon"></div>
+          <span class="marquee-label">文件签署</span>
+        </div>
+        <div class="marquee-item" aria-hidden="true">
+          <div class="marquee-icon"></div>
+          <span class="marquee-label">国外函件</span>
+        </div>
+      </div>
+    </div>
     <div class="container">
       <h2 class="fade-in-up">做一笔劳务支付，
 为什么总感觉流程很长？</h2>
