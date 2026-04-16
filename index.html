@@ -1170,15 +1170,22 @@
               dot.classList.add('active');
             }
           });
-
-          // Show floaters only on #s3
-          const floaters = document.querySelector('.bg-floaters');
-          if (floaters) {
-            floaters.style.opacity = sectionId === 's3' ? '1' : '0';
-          }
         }
       });
     }, observerOptions);
+
+    // Show floaters only on #s3 — separate observer for sections
+    const floaters = document.querySelector('.bg-floaters');
+    if (floaters) {
+      const s3Observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.target.id === 's3') {
+            floaters.style.opacity = entry.isIntersecting ? '1' : '0';
+          }
+        });
+      }, { threshold: 0.15 });
+      sections.forEach(s => s3Observer.observe(s));
+    }
 
     // Observe all animated elements
     document.querySelectorAll('.fade-in-up, .scale-in').forEach(el => {
