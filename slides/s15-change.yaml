@@ -1,0 +1,7 @@
+id: s15
+layout: change
+title: "有些流程尾部的小环节，\n单独看不大，合起来很耗。"
+before: "国内：关键信息卡片复制\n国外：信函内容按人预览+Word导出\n局部手动调整，不反写主数据"
+after: "钉钉签署文件下发查询\n外籍信函一人一份\n劳务狗狗覆盖尾部动作"
+animation: scale-in
+closing: "流程的最后几步，\n终于也被接住了。"
