@@ -9,7 +9,7 @@ animation: stagger
 closing: "不是某一步特别复杂，\n而是整条链条都在消耗注意力。"
 marquee:
   speed: "18s"
-  items:
+  files:
     - "人员信息表"
     - "任务下达"
     - "税务确认"
