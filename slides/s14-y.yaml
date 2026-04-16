@@ -1,0 +1,14 @@
+id: s14
+layout: y
+title: 最靠后的环节，往往最不应该再耗费注意力。
+cards:
+  - title: 表头复制/核对区
+    body: 关键信息卡片，便于逐项复制。
+  - title: 报销明细导出区
+    body: 预览 + 一键导出 Excel。
+  - title: 结算信息导出区
+    body: 预览 + 一键导出 Excel。
+  - title: 工作量明细导出区
+    body: 按模板生成工作量明细表。
+animation: stagger
+closing: 到最后一步，状态应该是「直接使用」，而不是「重新准备」。
