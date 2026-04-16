@@ -1,0 +1,11 @@
+id: s17
+layout: summary
+title: "劳务狗狗真正改变的，\n不是某一张表，而是整个过程里的节奏。"
+cards:
+  - title: "过去"
+    body: "收表 → 整理 → 复制 → 再整理 → 再复制 → 再核对 → 再导出"
+  - title: "现在"
+    body: "录入 → 确认 → 输出 → 推进"
+  - title: "结果"
+    body: "少一次重复，就少一次出错。\n少一次出错，就少一次返工。"
+animation: stagger
