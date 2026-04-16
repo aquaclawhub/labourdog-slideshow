@@ -1,0 +1,10 @@
+id: s9
+layout: d1
+title: "到了钉钉，\n不需要再把同一份信息重新想一遍。"
+list_items:
+  - "张三（国内居民）"
+  - "李四（国外非居民）"
+  - "Maria（外籍）"
+fields: ["姓名", "证件号", "开户行", "账号", "SWIFT", "IBAN"]
+animation: stagger
+closing: "录入动作本身没有变，\n但准备方式变了。"
