@@ -187,6 +187,8 @@
       z-index: 0;
       pointer-events: none;
       overflow: hidden;
+      opacity: 0;
+      transition: opacity 0.5s ease;
     }
     .bg-floaters::before {
       content: '';
@@ -1172,7 +1174,7 @@
           // Show floaters only on #s3
           const floaters = document.querySelector('.bg-floaters');
           if (floaters) {
-            floaters.style.visibility = sectionId === 's3' ? 'visible' : 'hidden';
+            floaters.style.opacity = sectionId === 's3' ? '1' : '0';
           }
         }
       });
