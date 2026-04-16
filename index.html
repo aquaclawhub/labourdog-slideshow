@@ -703,12 +703,10 @@
     }
     .pipeline-track {
       position: absolute;
-      height: 2px;
+      height: 1px;
       background: transparent;
       width: 200%;
       left: -50%;
-      top: 50%;
-      transform: translateY(-50%);
     }
     .pipeline-track::before {
       content: '';
@@ -721,19 +719,18 @@
         transparent 0px,
         transparent 60px,
         var(--accent, #007AFF) 60px,
-        var(--accent, #007AFF) 64px
+        var(--accent, #007AFF) 62px
       );
-      opacity: 0.25;
+      opacity: 0.12;
     }
     .pipeline-dot {
       position: absolute;
-      width: 6px;
-      height: 6px;
+      width: 3px;
+      height: 3px;
       border-radius: 50%;
       background: var(--accent, #007AFF);
       opacity: 0;
-      top: -3px;
-      box-shadow: 0 0 6px var(--accent, #007AFF), 0 0 12px var(--accent, #007AFF);
+      top: -1px;
     }
     @keyframes pipeline-scroll-a {
       0%   { transform: translateX(-60px); opacity: 0; }
@@ -757,18 +754,10 @@
     .pipeline-track:nth-child(2) { top: 32%; animation: pipeline-scroll-b 9s linear infinite 1.5s; }
     .pipeline-track:nth-child(3) { top: 52%; animation: pipeline-scroll-c 8s linear infinite 3s; }
     .pipeline-track:nth-child(4) { top: 72%; animation: pipeline-scroll-a 10s linear infinite 0.5s; }
-    .pipeline-track:nth-child(1) .pipeline-dot:nth-child(1) { animation: pipeline-scroll-a 7s linear infinite 0s; }
-    .pipeline-track:nth-child(1) .pipeline-dot:nth-child(2) { animation: pipeline-scroll-a 7s linear infinite 2.3s; }
-    .pipeline-track:nth-child(1) .pipeline-dot:nth-child(3) { animation: pipeline-scroll-a 7s linear infinite 4.6s; }
-    .pipeline-track:nth-child(2) .pipeline-dot:nth-child(1) { animation: pipeline-scroll-b 9s linear infinite 1.5s; }
-    .pipeline-track:nth-child(2) .pipeline-dot:nth-child(2) { animation: pipeline-scroll-b 9s linear infinite 4.5s; }
-    .pipeline-track:nth-child(2) .pipeline-dot:nth-child(3) { animation: pipeline-scroll-b 9s linear infinite 7.5s; }
-    .pipeline-track:nth-child(3) .pipeline-dot:nth-child(1) { animation: pipeline-scroll-c 8s linear infinite 3s; }
-    .pipeline-track:nth-child(3) .pipeline-dot:nth-child(2) { animation: pipeline-scroll-c 8s linear infinite 5.6s; }
-    .pipeline-track:nth-child(3) .pipeline-dot:nth-child(3) { animation: pipeline-scroll-c 8s linear infinite 0.8s; }
-    .pipeline-track:nth-child(4) .pipeline-dot:nth-child(1) { animation: pipeline-scroll-a 10s linear infinite 0.5s; }
-    .pipeline-track:nth-child(4) .pipeline-dot:nth-child(2) { animation: pipeline-scroll-a 10s linear infinite 3.8s; }
-    .pipeline-track:nth-child(4) .pipeline-dot:nth-child(3) { animation: pipeline-scroll-a 10s linear infinite 7.1s; }
+    .pipeline-track:nth-child(1) .pipeline-dot { animation: pipeline-scroll-a 7s linear infinite 0s; }
+    .pipeline-track:nth-child(2) .pipeline-dot { animation: pipeline-scroll-b 9s linear infinite 1.5s; }
+    .pipeline-track:nth-child(3) .pipeline-dot { animation: pipeline-scroll-c 8s linear infinite 3s; }
+    .pipeline-track:nth-child(4) .pipeline-dot { animation: pipeline-scroll-a 10s linear infinite 0.5s; }
 
     /* ── Table Flicker Animation (slide 14) ── */
     .table-grid-overlay {
@@ -878,6 +867,139 @@
     .net-line:nth-child(10) { left: 55%; top: 25%; width: 90px;  transform: rotate(30deg); }
     .net-line:nth-child(11) { left: 72%; top: 60%; width: 70px;  transform: rotate(-20deg); }
     .net-line:nth-child(12) { left: 25%; top: 75%; width: 100px; transform: rotate(10deg); }
+    /* ── Hierarchy/Orbit Animation (slides 5-7) ── */
+    .orbit-wrapper {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .orbit-ring {
+      position: absolute;
+      border: 1px solid var(--accent, #007AFF);
+      border-radius: 50%;
+      opacity: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .orbit-core {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent, #007AFF);
+      opacity: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    @keyframes orbit-expand-a {
+      0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
+      30%  { opacity: 0.18; }
+      70%  { opacity: 0.12; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+    }
+    @keyframes orbit-expand-b {
+      0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.2); }
+      35%  { opacity: 0.15; }
+      65%  { opacity: 0.10; transform: translate(-50%, -50%) scale(0.8); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    }
+    .orbit-ring:nth-child(1) { width: 120px; height: 120px; animation: orbit-expand-a 6s ease-out infinite 0s; }
+    .orbit-ring:nth-child(2) { width: 220px; height: 220px; animation: orbit-expand-b 6s ease-out infinite 2s; }
+    .orbit-ring:nth-child(3) { width: 340px; height: 340px; animation: orbit-expand-a 6s ease-out infinite 4s; }
+    .orbit-core:nth-child(4) { animation: orbit-expand-b 6s ease-out infinite 1s; }
+    .orbit-core:nth-child(5) { animation: orbit-expand-a 6s ease-out infinite 3s; }
+
+    /* ── Timeline Progress Animation (slide 17) ── */
+    .timeline-wrapper {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .timeline-track {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent, #007AFF);
+      opacity: 0.15;
+    }
+    .timeline-progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: var(--accent, #007AFF);
+      width: 0;
+      border-radius: 2px;
+    }
+    .timeline-dot {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent, #007AFF);
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+    .timeline-track:nth-child(1) { top: 30%; }
+    .timeline-track:nth-child(1) .timeline-progress { animation: timeline-flow-1 4s ease-in-out infinite; }
+    .timeline-track:nth-child(1) .timeline-dot { animation: dot-arrive-1 4s ease-in-out infinite; }
+    .timeline-track:nth-child(2) { top: 50%; }
+    .timeline-track:nth-child(2) .timeline-progress { animation: timeline-flow-2 4s ease-in-out infinite 0.8s; }
+    .timeline-track:nth-child(2) .timeline-dot { animation: dot-arrive-2 4s ease-in-out infinite 0.8s; }
+    .timeline-track:nth-child(3) { top: 70%; }
+    .timeline-track:nth-child(3) .timeline-progress { animation: timeline-flow-3 4s ease-in-out infinite 1.6s; }
+    .timeline-track:nth-child(3) .timeline-dot { animation: dot-arrive-3 4s ease-in-out infinite 1.6s; }
+    @keyframes timeline-flow-1 {
+      0%   { width: 0; opacity: 0; }
+      10%  { opacity: 0.6; }
+      80%  { width: 85%; opacity: 0.4; }
+      100% { width: 85%; opacity: 0; }
+    }
+    @keyframes timeline-flow-2 {
+      0%   { width: 0; opacity: 0; }
+      8%   { opacity: 0.7; }
+      85%  { width: 90%; opacity: 0.5; }
+      100% { width: 90%; opacity: 0; }
+    }
+    @keyframes timeline-flow-3 {
+      0%   { width: 0; opacity: 0; }
+      5%   { opacity: 0.8; }
+      90%  { width: 95%; opacity: 0.5; }
+      100% { width: 95%; opacity: 0; }
+    }
+    @keyframes dot-arrive-1 {
+      0%, 5% { left: 0; opacity: 0; }
+      10% { opacity: 0.7; }
+      80% { left: 85%; opacity: 0.5; }
+      90%, 100% { left: 85%; opacity: 0; }
+    }
+    @keyframes dot-arrive-2 {
+      0%, 8% { left: 0; opacity: 0; }
+      12% { opacity: 0.8; }
+      85% { left: 90%; opacity: 0.5; }
+      95%, 100% { left: 90%; opacity: 0; }
+    }
+    @keyframes dot-arrive-3 {
+      0%, 5% { left: 0; opacity: 0; }
+      10% { opacity: 0.9; }
+      90% { left: 95%; opacity: 0.5; }
+      100% { left: 95%; opacity: 0; }
+    }
     /* ── Hierarchy/Orbit Animation (slides 5-7) ── */
     .orbit-wrapper {
       position: absolute;
@@ -1241,7 +1363,7 @@
     </div>
     </section>
 
-  <!-- Section s6: Core Model -->
+  <!-- Section s6: Start Page -->
   <section id="s6">
   <div class="orbit-wrapper" aria-hidden="true">
     <div class="orbit-ring"></div>
@@ -1251,38 +1373,28 @@
     <div class="orbit-core"></div>
   </div>
     <div class="container">
-      <h2 class="fade-in-up">第一步，不是去填系统，
-而是先把信息收拢。</h2>
-      <p class="body-text fade-in-up stagger-1">在劳务狗狗里，真正的起点是 S 一次性录入。</p>
-      <p class="body-text fade-in-up stagger-2">这个页面是整套流程的主数据页，用来统一维护：批次头信息、人员主信息、人员结算信息、税务与导出信息。</p>
-      <p class="body-text fade-in-up stagger-3">支持手工录入和 Excel 导入，后面的钉钉录入、税务确认、用友导出都统一从这里读取，不再各自重新整理。</p>
-      <div class="hierarchy fade-in-up stagger-4">
-        <div class="hierarchy-batch scale-in stagger-4">支付批次</div>
-        <div class="hierarchy-arrow">↓</div>
-        <div class="hierarchy-people">
-        </div>
-      </div>
-      <p class="emphasis fade-in-up stagger-5">不是把表搬进来，
-而是把信息收进来。</p>
-          <span class="slide-num">6</span>
-    </div>
-    </section>
-
-  <!-- Section s7: Start Page -->
-  <section id="s7">
-  <div class="orbit-wrapper" aria-hidden="true">
-    <div class="orbit-ring"></div>
-    <div class="orbit-ring"></div>
-    <div class="orbit-ring"></div>
-    <div class="orbit-core"></div>
-    <div class="orbit-core"></div>
-  </div>
-    <div class="container">
-      <h2 class="fade-in-up">S 页 · 统一入口</h2>
+      <h2 class="fade-in-up">第一步，不是去填系统，而是先把信息收拢。</h2>
       <p class="body-text fade-in-up stagger-1">批次头信息</p>
       <p class="body-text fade-in-up stagger-2">人员主信息</p>
       <p class="body-text fade-in-up stagger-3">人员结算信息</p>
       <p class="body-text fade-in-up stagger-4">税务与导出信息</p>
+          <span class="slide-num">6</span>
+    </div>
+    </section>
+
+  <!-- Section s7: Import Capability -->
+  <section id="s7">
+    <div class="pipeline-wrapper" aria-hidden="true">
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+    </div>
+    <div class="container">
+      <h2 class="fade-in-up">不是所有人的 Excel，都长得一样。</h2>
+      <p class="body-text fade-in-up stagger-1">识别 sheet，判断表头行，自动匹配字段，支持手工修正映射。</p>
+      <p class="body-text fade-in-up stagger-2">对手机号、金额、日期等基础数据做清洗。</p>
+      <p class="body-text fade-in-up stagger-3">导入完成后，数据写入当前批次，形成可以继续往下走的结构。</p>
           <span class="slide-num">7</span>
     </div>
     </section>
@@ -1290,10 +1402,10 @@
   <!-- Section s8: Import Capability -->
   <section id="s8">
     <div class="pipeline-wrapper" aria-hidden="true">
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
     </div>
     <div class="container">
       <h2 class="fade-in-up">不是所有人的 Excel，
@@ -1308,10 +1420,10 @@
   <!-- Section s9: D1 Page -->
   <section id="s9">
     <div class="pipeline-wrapper" aria-hidden="true">
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
     </div>
     <div class="container">
       <h2 class="fade-in-up">到了钉钉，
@@ -1323,10 +1435,10 @@
   <!-- Section s10: D2 Page -->
   <section id="s10">
     <div class="pipeline-wrapper" aria-hidden="true">
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
     </div>
     <div class="container">
       <h2 class="fade-in-up">「这个人是谁」与「这次做了什么」，本来就不是同一件事。</h2>
@@ -1346,10 +1458,10 @@
   <!-- Section s11: Tax Calculation -->
   <section id="s11">
     <div class="pipeline-wrapper" aria-hidden="true">
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
     </div>
     <div class="container">
       <h2 class="fade-in-up">有些计算，
@@ -1366,10 +1478,10 @@
   <!-- Section s12: DQ Notification -->
   <section id="s12">
     <div class="pipeline-wrapper" aria-hidden="true">
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
     </div>
     <div class="container">
       <h2 class="fade-in-up">有些推进动作，不应该卡在「我该怎么说」上。</h2>
@@ -1382,10 +1494,10 @@
   <!-- Section s13: SQ Table -->
   <section id="s13">
     <div class="pipeline-wrapper" aria-hidden="true">
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
-      <div class="pipeline-track"><div class="pipeline-dot"></div><div class="pipeline-dot"></div><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
+      <div class="pipeline-track"><div class="pipeline-dot"></div></div>
     </div>
     <div class="container">
       <h2 class="fade-in-up">到了财务确认这一步，
@@ -1483,31 +1595,25 @@
     </div>
     </section>
 
-  <!-- Section s17: Summary -->
+  <!-- Section s17: Change -->
   <section id="s17">
-  <div class="timeline-wrapper" aria-hidden="true">
-    <div class="timeline-track"><div class="timeline-progress"></div><div class="timeline-dot"></div></div>
-    <div class="timeline-track"><div class="timeline-progress"></div><div class="timeline-dot"></div></div>
-    <div class="timeline-track"><div class="timeline-progress"></div><div class="timeline-dot"></div></div>
-  </div>
+    <div class="stacking-wrapper" aria-hidden="true">
+      <div class="stacking-bar"></div>
+      <div class="stacking-bar"></div>
+      <div class="stacking-bar"></div>
+      <div class="stacking-bar"></div>
+      <div class="stacking-bar"></div>
+      <div class="stacking-bar"></div>
+      <div class="stacking-bar"></div>
+      <div class="stacking-bar"></div>
+      <div class="stacking-bar"></div>
+      <div class="stacking-bar"></div>
+      <div class="stacking-bar"></div>
+      <div class="stacking-bar"></div>
+    </div>
     <div class="container">
       <h2 class="fade-in-up">劳务狗狗真正改变的，
 不是某一张表，而是整个过程里的节奏。</h2>
-      <div class="cards-3">
-        <div class="card fade-in-up stagger-1">
-          <h3>过去</h3>
-          <p>收表 → 整理 → 复制 → 再整理 → 再复制 → 再核对 → 再导出</p>
-        </div>
-        <div class="card fade-in-up stagger-2">
-          <h3>现在</h3>
-          <p>录入 → 确认 → 输出 → 推进</p>
-        </div>
-        <div class="card fade-in-up stagger-3">
-          <h3>结果</h3>
-          <p>少一次重复，就少一次出错。
-少一次出错，就少一次返工。</p>
-        </div>
-      </div>
           <span class="slide-num">17</span>
     </div>
     </section>
