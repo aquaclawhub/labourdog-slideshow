@@ -1,0 +1,10 @@
+id: s7
+layout: spage
+title: "S 页 · 统一入口"
+body:
+  - "批次头信息"
+  - "人员主信息"
+  - "人员结算信息"
+  - "税务与导出信息"
+fields: ["手工录入", "Excel 导入"]
+animation: stagger
