@@ -734,20 +734,20 @@
     }
     @keyframes pipeline-scroll-a {
       0%   { transform: translateX(-60px); opacity: 0; }
-      5%   { opacity: 0.7; }
-      95%  { opacity: 0.5; }
+      5%   { opacity: 0.85; }
+      95%  { opacity: 0.65; }
       100% { transform: translateX(calc(100vw + 60px)); opacity: 0; }
     }
     @keyframes pipeline-scroll-b {
       0%   { transform: translateX(-120px); opacity: 0; }
-      8%   { opacity: 0.6; }
-      92%  { opacity: 0.4; }
+      8%   { opacity: 0.75; }
+      92%  { opacity: 0.55; }
       100% { transform: translateX(calc(100vw + 120px)); opacity: 0; }
     }
     @keyframes pipeline-scroll-c {
       0%   { transform: translateX(-180px); opacity: 0; }
-      10%  { opacity: 0.5; }
-      90%  { opacity: 0.3; }
+      10%  { opacity: 0.65; }
+      90%  { opacity: 0.45; }
       100% { transform: translateX(calc(100vw + 180px)); opacity: 0; }
     }
     .pipeline-track:nth-child(1) { top: 15%; animation: pipeline-scroll-a 7s linear infinite; }
@@ -811,8 +811,8 @@
     }
     @keyframes stack-rise {
       0%   { transform: scaleX(0) scaleY(0); opacity: 0; transform-origin: bottom center; }
-      20%  { opacity: 0.18; transform: scaleX(1) scaleY(0); transform-origin: bottom center; }
-      80%  { opacity: 0.15; transform: scaleX(1) scaleY(1); transform-origin: bottom center; }
+      20%  { opacity: 0.30; transform: scaleX(1) scaleY(0); transform-origin: bottom center; }
+      80%  { opacity: 0.28; transform: scaleX(1) scaleY(1); transform-origin: bottom center; }
       100% { opacity: 0; transform: scaleX(1) scaleY(1); transform-origin: bottom center; }
     }
     .stacking-bar:nth-child(1)  { left: 5%;  width: 40px; animation: stack-rise 4s ease-in-out infinite 0s; }
@@ -897,14 +897,14 @@
     }
     @keyframes orbit-expand-a {
       0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
-      30%  { opacity: 0.18; }
+      30%  { opacity: 0.30; }
       70%  { opacity: 0.12; transform: translate(-50%, -50%) scale(1); }
       100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
     }
     @keyframes orbit-expand-b {
       0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.2); }
-      35%  { opacity: 0.15; }
-      65%  { opacity: 0.10; transform: translate(-50%, -50%) scale(0.8); }
+      35%  { opacity: 0.25; }
+      65%  { opacity: 0.18; transform: translate(-50%, -50%) scale(0.8); }
       100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
     }
     .orbit-ring:nth-child(1) { width: 120px; height: 120px; animation: orbit-expand-a 6s ease-out infinite 0s; }
@@ -966,38 +966,38 @@
     .timeline-track:nth-child(3) .timeline-dot { animation: dot-arrive-3 4s ease-in-out infinite 1.6s; }
     @keyframes timeline-flow-1 {
       0%   { width: 0; opacity: 0; }
-      10%  { opacity: 0.6; }
-      80%  { width: 85%; opacity: 0.4; }
+      10%  { opacity: 0.48; }
+      80%  { width: 85%; opacity: 0.32; }
       100% { width: 85%; opacity: 0; }
     }
     @keyframes timeline-flow-2 {
       0%   { width: 0; opacity: 0; }
-      8%   { opacity: 0.7; }
-      85%  { width: 90%; opacity: 0.5; }
+      8%   { opacity: 0.56; }
+      85%  { width: 90%; opacity: 0.40; }
       100% { width: 90%; opacity: 0; }
     }
     @keyframes timeline-flow-3 {
       0%   { width: 0; opacity: 0; }
-      5%   { opacity: 0.8; }
-      90%  { width: 95%; opacity: 0.5; }
+      5%   { opacity: 0.64; }
+      90%  { width: 95%; opacity: 0.40; }
       100% { width: 95%; opacity: 0; }
     }
     @keyframes dot-arrive-1 {
       0%, 5% { left: 0; opacity: 0; }
-      10% { opacity: 0.7; }
-      80% { left: 85%; opacity: 0.5; }
+      10% { opacity: 0.56; }
+      80% { left: 85%; opacity: 0.40; }
       90%, 100% { left: 85%; opacity: 0; }
     }
     @keyframes dot-arrive-2 {
       0%, 8% { left: 0; opacity: 0; }
-      12% { opacity: 0.8; }
-      85% { left: 90%; opacity: 0.5; }
+      12% { opacity: 0.64; }
+      85% { left: 90%; opacity: 0.40; }
       95%, 100% { left: 90%; opacity: 0; }
     }
     @keyframes dot-arrive-3 {
       0%, 5% { left: 0; opacity: 0; }
-      10% { opacity: 0.9; }
-      90% { left: 95%; opacity: 0.5; }
+      10% { opacity: 0.72; }
+      90% { left: 95%; opacity: 0.40; }
       100% { left: 95%; opacity: 0; }
     }
     /* ── Hierarchy/Orbit Animation (slides 5-7) ── */
@@ -1030,14 +1030,14 @@
     }
     @keyframes orbit-expand-a {
       0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
-      30%  { opacity: 0.18; }
+      30%  { opacity: 0.30; }
       70%  { opacity: 0.12; transform: translate(-50%, -50%) scale(1); }
       100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
     }
     @keyframes orbit-expand-b {
       0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.2); }
-      35%  { opacity: 0.15; }
-      65%  { opacity: 0.10; transform: translate(-50%, -50%) scale(0.8); }
+      35%  { opacity: 0.25; }
+      65%  { opacity: 0.18; transform: translate(-50%, -50%) scale(0.8); }
       100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
     }
     .orbit-ring:nth-child(1) { width: 120px; height: 120px; animation: orbit-expand-a 6s ease-out infinite 0s; }
@@ -1099,38 +1099,38 @@
     .timeline-track:nth-child(3) .timeline-dot { animation: dot-arrive-3 4s ease-in-out infinite 1.6s; }
     @keyframes timeline-flow-1 {
       0%   { width: 0; opacity: 0; }
-      10%  { opacity: 0.6; }
-      80%  { width: 85%; opacity: 0.4; }
+      10%  { opacity: 0.48; }
+      80%  { width: 85%; opacity: 0.32; }
       100% { width: 85%; opacity: 0; }
     }
     @keyframes timeline-flow-2 {
       0%   { width: 0; opacity: 0; }
-      8%   { opacity: 0.7; }
-      85%  { width: 90%; opacity: 0.5; }
+      8%   { opacity: 0.56; }
+      85%  { width: 90%; opacity: 0.40; }
       100% { width: 90%; opacity: 0; }
     }
     @keyframes timeline-flow-3 {
       0%   { width: 0; opacity: 0; }
-      5%   { opacity: 0.8; }
-      90%  { width: 95%; opacity: 0.5; }
+      5%   { opacity: 0.64; }
+      90%  { width: 95%; opacity: 0.40; }
       100% { width: 95%; opacity: 0; }
     }
     @keyframes dot-arrive-1 {
       0%, 5% { left: 0; opacity: 0; }
-      10% { opacity: 0.7; }
-      80% { left: 85%; opacity: 0.5; }
+      10% { opacity: 0.56; }
+      80% { left: 85%; opacity: 0.40; }
       90%, 100% { left: 85%; opacity: 0; }
     }
     @keyframes dot-arrive-2 {
       0%, 8% { left: 0; opacity: 0; }
-      12% { opacity: 0.8; }
-      85% { left: 90%; opacity: 0.5; }
+      12% { opacity: 0.64; }
+      85% { left: 90%; opacity: 0.40; }
       95%, 100% { left: 90%; opacity: 0; }
     }
     @keyframes dot-arrive-3 {
       0%, 5% { left: 0; opacity: 0; }
-      10% { opacity: 0.9; }
-      90% { left: 95%; opacity: 0.5; }
+      10% { opacity: 0.72; }
+      90% { left: 95%; opacity: 0.40; }
       100% { left: 95%; opacity: 0; }
     }
   </style>
